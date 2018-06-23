@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="fh5co-loader"></div>
+
+<div id="page">
+  {% include "nav.html" %} {% block main %}{% endblock %} {% include "footer.html" %}
+</div>
+{% endblock  %}

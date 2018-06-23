@@ -6,4 +6,8 @@ module.exports = (app, passport) => {
       users: [{ url: 'http://google.com', username: 'OdinTech' }]
     });
   });
+
+  app.get('/signin', (req, res) => {
+    res.render('signin.html');
+  });
 };

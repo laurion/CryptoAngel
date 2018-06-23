@@ -43,6 +43,7 @@ app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
+app.use(express.static(path.join(BASE_DIR, 'public', 'static')));
 
 app.use(session({
   resave: true,
