@@ -1756,4 +1756,17 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .detail-page {
   background: #F0F5F9;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.tab-pane {
+  padding-top: 20px;
+}
+
+
+@media (max-width: 1190px) {
+  .event {
+    float: none;
+  }
 }
