@@ -44,6 +44,7 @@ module.exports = (app, passport) => {
 
   app.post('/auth/signup', (req, res, next) => {
     req.assert('email', 'Email is not valid').isEmail();
+    req.assert('organizationName', 'Email is not valid').isEmail();
     req.assert('password', 'Password must be at least 4 characters long').len(4);
     req.assert('confirm-p', 'Passwords do not match').equals(req.body.password);
     req.sanitize('email').normalizeEmail({ gmail_remove_dots: false });
@@ -54,10 +55,10 @@ module.exports = (app, passport) => {
       req.flash('errors', errors);
       return res.redirect('/signup');
     }
-    console.log(req.body.email);
+
     const user = new User();
-    console.log(user);
     user.email = req.body.email;
+    user.profile.organizationName = req.body.organizationName;
     user.password = user.generateHash(req.body.password);
 
     User.findOne({ email: req.body.email }, (err, existingUser) => {

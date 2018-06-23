@@ -7,9 +7,9 @@ const userSchema = new mongoose.Schema({
   password: String,
   walletId: String,
   profile: {
-    contactName: String,
+    organizationName: String,
     phoneNumber: String,
-    type: {
+    orgType: {
       type: String,
       enum: ['CHARITY', 'NGO'],
       default: 'CHARITY'

@@ -35,13 +35,13 @@ module.exports = (app) => {
     res.render('contact.html', { user_authenticated: authenticated });
   });
 
-  app.get('/detailpage', (req, res) => {
+  app.get('/profile', (req, res) => {
     const authenticated = (req.user) ? true : false;
-    res.render('detailpage.html', { user_authenticated: authenticated });
+    res.render('profile.html', { user_authenticated: authenticated, user: req.user });
   });
 
-  app.get('/editngo', (req, res) => {
+  app.get('/FHA', (req, res) => {
     const authenticated = (req.user) ? true : false;
-    res.render('editngo.html', { user_authenticated: authenticated });
+    res.render('detailpage.html', { user_authenticated: authenticated });
   });
 };

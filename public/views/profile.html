@@ -1,0 +1,80 @@
+{% extends "parent.html" %} {% block main %}
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);" data-stellar-background-ratio="0.5">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="display-t">
+					<div class="display-tc animate-box" data-animate-effect="fadeInUp">
+						<h3 class="white">Edit profile</h3>
+
+						<h5>{{ messages.warning }}</h5>
+
+						{% for error in messages.errors %}
+						<h5> {{ error }}</h5>{% endfor %}
+
+						<form method="POST" action="/profile">
+							<div class="row form-group col-md-6">
+								<div class="">
+									<label for="email" class="white">Email</label>
+									<input type="email" id="email" name="email" value="{{ user.email }}" class="form-control" placeholder="Your email address">
+								</div>
+							</div>
+
+							<div class="row form-group col-md-6">
+								<div>
+									<label for="organizationName" class="white">Organization</label>
+									<input type="text" id="organizationName" name="organizationName" value="{{ user.profile.organizationName }}" class="form-control" placeholder="Your organization name">
+								</div>
+							</div>
+
+							<div class="row form-group col-md-6">
+								<div>
+									<label for="orgType" class="white">Organization Type</label>
+									<select name="orgType" id="orgType" class="form-control">
+										<option value="CHARITY" {% if user.profile.orgType == "CHARITY"%}selected{% endif %}>Charity</option>
+										<option value="NGO" {% if user.profile.orgType == "NGO"%}selected{% endif %}>NGO</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="row form-group col-md-6">
+								<div>
+									<label for="phoneNumber" class="white">Phone Number</label>
+									<input type="number" id="phoneNumber" name="phoneNumber" value="{{ user.profile.phoneNumber }}" class="form-control" placeholder="Your phone number">
+								</div>
+							</div>
+
+							<div class="row form-group col-md-6">
+								<div>
+									<label for="website" class="white">Website</label>
+									<input type="url" id="website" name="website" value="{{ user.profile.website }}" class="form-control" placeholder="Your website">
+								</div>
+							</div>
+
+							<div class="row form-group col-md-6">
+									<div>
+										<label for="walletId" class="white">Wallet ID</label>
+										<input type="text" id="walletId" name="walletId" value="{{ user.walletId }}" class="form-control" placeholder="Your wallet ID">
+									</div>
+								</div>
+
+							<div class="row form-group col-md-6">
+									<div>
+										<label for="description" class="white">Description</label>
+										<textarea class="form-control" id="description" name="description" value="{{ user.profile.description }}"rows="5" placeholder="Your NGO description"></textarea>
+									</div>
+								</div>
+
+							<div class="form-group">
+								<input type="submit" value="Save" class="btn btn-lg btn-primary">
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+{% endblock %}

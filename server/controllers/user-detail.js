@@ -2,7 +2,7 @@
 const User = require('../models/user.js');
 
 module.exports = (app) => {
-  app.put('/profile', (req, res, next) => {
+  app.post('/profile', (req, res, next) => {
     req.assert('email', 'Please enter a valid email address.').isEmail();
     req.sanitize('email').normalizeEmail({ gmail_remove_dots: false });
 
@@ -16,13 +16,16 @@ module.exports = (app) => {
     process.nextTick(() => {
       User.findById(req.user.id, (err, user) => {
         if (err) { return next(err); }
-        user.email = req.body.email || '';
-        user.walletId = req.body.walletId || '';
-        user.profile.contactName = req.body.contactName || '';
-        user.profile.type = req.body.type || '';
-        user.profile.description = req.body.description || '';
-        user.profile.picture = req.body.picture || '';
-        user.profile.description = req.bod.description || '';
+
+        user.email = req.body.email || user.email;
+        user.walletId = req.body.walletId || user.walletId;
+        user.profile.organizationName = req.body.organizationName || user.profile.organizationName;
+        user.profile.phoneNumber = req.body.phoneNumber || user.profile.phoneNumber;
+        user.profile.orgType = req.body.orgType || user.profile.orgType;
+        user.profile.description = req.body.description || user.profile.description;
+        user.profile.picture = req.body.picture || user.profile.picture;
+        user.profile.website = req.body.website || user.profile.website;
+
         user.save((err) => {
           if (err) {
             if (err.code === 11000) {

@@ -6,17 +6,27 @@
 			<div class="col-md-7">
 				<div class="display-t">
 					<div class="display-tc animate-box" data-animate-effect="fadeInUp">
-						<h3 class="white">NGO sign up</h3>
+						<h3 class="white">Join Us</h3>
 
 						<h5>{{ messages.warning }}</h5>
 
 						{% for error in messages.errors %}<h5> {{ error }}</h5>{% endfor %}
 
-						<form method="POST" action="/auth/signup" @submit.prevent="startAudit">
+						<form method="POST" action="/auth/signup">
 							<div class="row form-group">
 								<div class="col-md-12">
-									<label for="organization" class="white">Organization</label>
-									<input type="text" id="organization" name="organization" class="form-control" placeholder="Your NGO name">
+									<label for="organizationName" class="white">Organization</label>
+									<input type="text" id="organizationName" name="organizationName" class="form-control" placeholder="Your Organization name">
+								</div>
+							</div>
+
+							<div class="row form-group col-md-6">
+								<div>
+									<label for="orgType" class="white">Organization Type</label>
+									<select name="orgType" id="orgType" class="form-control">
+										<option value="CHARITY" selected>Charity</option>
+										<option value="NGO">NGO</option>
+									</select>
 								</div>
 							</div>
 
