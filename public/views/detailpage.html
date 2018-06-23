@@ -4,36 +4,47 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<span>Let's work together</span>
 					<h2>Try this template for free</h2>
+					<a href="https://vimeo.com/channels/staffpicks/93951774" class="link-watch popup-vimeo">Watch Video</a>
 					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor
 						eius.
 					</p>
 					<p>
-						<button type="submit" class="btn btn-default">Donate</button>
+						<button type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal">Donate</button>
 					</p>
+					<span>Galati, Romania</span>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container detail-page">
+	<div class="detail-page">
 		<div class="row">
 			<div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 ngo-description">
-					<ul class="nav nav-tabs">
-							<li class="active"><a data-toggle="tab" href="#home">About us</a></li>
-							<li><a data-toggle="tab" href="#menu1">Organization details</a></li>
-						  </ul>
-						  
-						  <div class="tab-content">
-							<div id="home" class="tab-pane fade in active">
-							  <h3>About us</h3>
-							  <p>Some content.</p>
-							</div>
-							<div id="menu1" class="tab-pane fade">
-							  <h3>Organization details</h3>
-							  <p>Some content in menu 1.</p>
-							</div>
-						  </div>
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a data-toggle="tab" href="#home">About us</a>
+					</li>
+					<li>
+						<a data-toggle="tab" href="#menu1">Organization details</a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+					<div id="home" class="tab-pane fade in active">
+						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum tempora quidem ratione aperiam rem magnam quis sequi!
+							Repellendus magni labore vero consequuntur sint maxime sit fuga sunt accusantium perspiciatis architecto voluptates
+							ea, harum voluptate numquam, assumenda voluptatibus natus iure. Maxime accusamus voluptates sed porro eum voluptatibus
+							nisi autem rerum quaerat.
+
+						</p>
+					</div>
+					<div id="menu1" class="tab-pane fade">
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil enim dignissimos similique. Deleniti ipsa nam pariatur
+							animi laboriosam, adipisci id quibusdam nesciunt sunt a maiores earum quas incidunt ab praesentium veniam ut aliquam
+							exercitationem assumenda recusandae suscipit ad eos! Voluptas harum eligendi et ipsum tempora molestias earum ipsa
+							assumenda quos!</p>
+					</div>
+				</div>
 			</div>
 			<div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 ngo-timeline ">
 				<div class="event">
@@ -41,13 +52,84 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque molestias voluptates quod.
 					</p>
 				</div>
+				<div class="event">
+					<h1>Event </h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque molestias voluptates quod.
+					</p>
+				</div>
 				<div class="vl"></div>
 			</div>
-			<!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/186acf908dab506dbff65dfc5bc0cd67.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
-			
+			<!-- LightWidget WIDGET -->
+			<script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+			<iframe src="//lightwidget.com/widgets/186acf908dab506dbff65dfc5bc0cd67.html" scrolling="no" allowtransparency="true" class="lightwidget-widget"
+			    style="width:100%;border:0;overflow:hidden;"></iframe>
+
 		</div>
 	</div>
 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Donation form</h4>
+			</div>
+			<div class="modal-body">
+				<form action="#">
+
+					<div class="row form-group">
+						<div class="col-md-6">
+							<label for="donationAmount">Donation Amount</label>
+							<input type="number" id="donationAmount" class="form-control" placeholder="223">
+						</div>
+						<div class="col-md-6">
+							<label for="donationCurrency">Currency</label>
+							<input type="text" id="donationCurrency" class="form-control" placeholder="$$">
+						</div>
+					</div>
+
+					<div class="row form-group">
+						<div class="col-md-12">
+							<label for="compName" class="white">Full Name</label>
+							<input type="text" id="compName" class="form-control" placeholder="Full name">
+						</div>
+					</div>
+
+					<div class="row form-group">
+							<div class="col-md-12">
+								<label for="compEmail" class="white">Email address</label>
+								<input type="email" id="compEmail" class="form-control" placeholder="Email address">
+							</div>
+						</div>
+	
+
+					<div class="row form-group">
+						<div class="col-md-12">
+							<label for="compAddress" class="white">Billing address</label>
+							<input type="email" id="compAddress" class="form-control" placeholder="Your address">
+						</div>
+					</div>
+
+					<div class="row form-group">
+						<div class="col-md-12">
+							<label for="compCountry" class="white">Country</label>
+							<input type="text" id="compCountry" class="form-control" placeholder="Country">
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Complete donation</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="gototop js-top">
