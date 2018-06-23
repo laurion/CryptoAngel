@@ -23,7 +23,7 @@ module.exports = (app, passport) => {
 
     if (errors) {
       req.flash('errors', errors);
-      return res.redirect('/login');
+      return res.redirect('/signin');
     }
 
     passport.authenticate('local', (err, user, info) => {
