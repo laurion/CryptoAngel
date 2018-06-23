@@ -14,7 +14,7 @@ module.exports = (app, passport) => {
     return res.redirect('/');
   });
 
-  app.post('/signin', (req, res, next) => {
+  app.post('/auth/signin', (req, res, next) => {
     req.assert('email', 'Email is not valid').isEmail();
     req.assert('password', 'Password cannot be blank').notEmpty();
     req.sanitize('email').normalizeEmail({ gmail_remove_dots: false });
@@ -55,11 +55,11 @@ module.exports = (app, passport) => {
       req.flash('errors', errors);
       return res.redirect('/signup');
     }
-
-    const user = new User({
-      email: req.body.email,
-      password: req.body.password
-    });
+    console.log(req.body.email);
+    const user = new User();
+    console.log(user);
+    user.email = req.body.email;
+    user.password = user.generateHash(req.body.password);
 
     User.findOne({ email: req.body.email }, (err, existingUser) => {
       if (err) { return next(err); }
@@ -78,6 +78,19 @@ module.exports = (app, passport) => {
           res.redirect('/');
         });
       });
+    });
+  });
+
+  /**
+ * GET /logout
+ * Log out.
+ */
+  app.get('/auth/signout', (req, res) => {
+    req.logout();
+    req.session.destroy((err) => {
+      if (err) console.log('Error : Failed to destroy the session during logout.', err);
+      req.user = null;
+      res.redirect('/');
     });
   });
 };

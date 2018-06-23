@@ -1,31 +1,37 @@
-
-module.exports = (app, passport) => {
-
+module.exports = (app) => {
   app.get('/', (req, res) => {
-    res.render('index.html');
+    const authenticated = (req.user) ? true : false;
+    console.log(authenticated);
+    res.render('index.html', { user_authenticated: authenticated });
   });
 
   app.get('/signin', (req, res) => {
-    res.render('signin.html');
+    const authenticated = (req.user) ? true : false;
+    res.render('signin.html', { user_authenticated: authenticated });
   });
 
   app.get('/signup', (req, res) => {
-    res.render('signup.html');
+    const authenticated = (req.user) ? true : false;
+    res.render('signup.html', { user_authenticated: authenticated });
   });
 
   app.get('/listing', (req, res) => {
-    res.render('products.html');
+    const authenticated = (req.user) ? true : false;
+    res.render('products.html', { user_authenticated: authenticated });
   });
 
   app.get('/howitworks', (req, res) => {
-    res.render('services.html');
+    const authenticated = (req.user) ? true : false;
+    res.render('services.html', { user_authenticated: authenticated });
   });
 
   app.get('/about', (req, res) => {
-    res.render('about.html');
+    const authenticated = (req.user) ? true : false;
+    res.render('about.html', { user_authenticated: authenticated });
   });
 
   app.get('/contact', (req, res) => {
-    res.render('contact.html');
+    const authenticated = (req.user) ? true : false;
+    res.render('contact.html', { user_authenticated: authenticated });
   });
 };

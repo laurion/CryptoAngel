@@ -14,6 +14,7 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+
 /**
  * Sign in using Email and Password.
  */
@@ -23,13 +24,10 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 
     if (!user) { return done(null, false, { msg: `Email: ${email} not found.` }); }
 
-    user.comparePassword(password)
-      .then((isMatch) => {
-        console.log(isMatch);
-        if (isMatch) { return done(null, user); }
+    if (!user.validPassword(password)) {
+      return done(null, false, { msg: 'Invalid email or password.' });
+    }
 
-        return done(null, false, { msg: 'Invalid email or password.' })
-      })
-      .catch(done);
+    return done(null, user);
   });
 }));
