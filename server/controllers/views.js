@@ -35,8 +35,8 @@ module.exports = (app) => {
     res.render('contact.html', { user_authenticated: authenticated });
   });
 
-  app.get('/profile', (req, res) => {
+  app.get('/detailpage', (req, res) => {
     const authenticated = (req.user) ? true : false;
-    res.render('profile.html', { user_authenticated: authenticated });
+    res.render('detailpage.html', { user_authenticated: authenticated });
   });
 };
