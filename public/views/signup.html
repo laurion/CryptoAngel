@@ -8,6 +8,10 @@
 					<div class="display-tc animate-box" data-animate-effect="fadeInUp">
 						<h3 class="white">NGO sign up</h3>
 
+						<h5>{{ messages.warning }}</h5>
+
+						{% for error in messages.errors %}<h5> {{ error }}</h5>{% endfor %}
+
 						<form method="POST" action="/auth/signup" @submit.prevent="startAudit">
 							<div class="row form-group">
 								<div class="col-md-12">

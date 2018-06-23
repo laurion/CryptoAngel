@@ -21,18 +21,15 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
   User.findOne({ email: email.toLowerCase() }, (err, user) => {
     if (err) { return done(err); }
 
-    if (!user) {
-      return done(null, false, { msg: `Email ${email} not found.` });
-    }
+    if (!user) { return done(null, false, { msg: `Email: ${email} not found.` }); }
 
-    user.comparePassword(password, (err, isMatch) => {
-      if (err) { return done(err); }
+    user.comparePassword(password)
+      .then((isMatch) => {
+        console.log(isMatch);
+        if (isMatch) { return done(null, user); }
 
-      if (isMatch) {
-        return done(null, user);
-      }
-
-      return done(null, false, { msg: 'Invalid email or password.' });
-    });
+        return done(null, false, { msg: 'Invalid email or password.' })
+      })
+      .catch(done);
   });
 }));

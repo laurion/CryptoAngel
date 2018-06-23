@@ -10,7 +10,13 @@
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeInUp">
 							<h3 class="white">Sign in</h3>
-							<form action="#">
+							<form method="POST" action="/signin">
+
+
+								<h5>{{ messages.warning }}</h5>
+
+								{% for error in messages.errors %}<h5> {{ error }}</h5>{% endfor %}
+
 
 								<div class="row form-group">
 									<div class="col-md-12">
@@ -30,6 +36,7 @@
 									<input type="submit" value="Sign in" class="btn btn-lg btn-primary">
 								</div>
 
+								<a href="/signup">Don't have an account? Click here to sign up.</a>
 							</form>
 						</div>
 					</div>

@@ -3,6 +3,7 @@ const session = require('express-session');
 const flash = require('express-flash');
 const expressValidator = require('express-validator');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const dotenv = require('dotenv');
 const chalk = require('chalk');
@@ -15,8 +16,8 @@ const jinja = require('nunjucks');
 /**
  * Controllers
  */
-const viewController = require('./controllers/views')
-const userController = require('./controllers/users.js')
+const viewController = require('./controllers/views');
+const userController = require('./controllers/users.js');
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -28,6 +29,17 @@ const VIEW_DIR = path.join(BASE_DIR, process.env.VIEW_DIR);
 
 
 const app = express();
+
+
+/**
+ * Connect to MongoDB.
+ */
+mongoose.connect(process.env.MONGODB_URI);
+mongoose.connection.on('error', (err) => {
+  console.error(err);
+  console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
+  process.exit();
+});
 
 /**
  * Configure Jinja (nunjunk) as view engine.
