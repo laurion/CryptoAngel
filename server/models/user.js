@@ -5,15 +5,14 @@ const crypto = require('crypto');
 const userSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   password: String,
-
-  roles: Array,
-  tokens: Array,
-
+  walletId: String,
   profile: {
     contactName: String,
+    phoneNumber: String,
     type: {
       type: String,
-      enum: ['CHARITY', 'NGO']
+      enum: ['CHARITY', 'NGO'],
+      default: 'CHARITY'
     },
     website: String,
     description: String,

@@ -42,7 +42,6 @@ module.exports = (app, passport) => {
     })(req, res, next);
   });
 
-
   app.post('/auth/signup', (req, res, next) => {
     req.assert('email', 'Email is not valid').isEmail();
     req.assert('password', 'Password must be at least 4 characters long').len(4);
@@ -81,10 +80,6 @@ module.exports = (app, passport) => {
     });
   });
 
-  /**
- * GET /logout
- * Log out.
- */
   app.get('/auth/signout', (req, res) => {
     req.logout();
     req.session.destroy((err) => {

@@ -32,6 +32,11 @@
             <a href="/signin">Sign in</a>
           {% endif %}
           </li>
+          {% if user_authenticated %}
+          <li>
+            <a href="/profile">Profile</a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </div>
