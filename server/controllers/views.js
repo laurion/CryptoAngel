@@ -12,4 +12,20 @@ module.exports = (app, passport) => {
   app.get('/signup', (req, res) => {
     res.render('signup.html');
   });
+
+  app.get('/listing', (req, res) => {
+    res.render('products.html');
+  });
+
+  app.get('/howitworks', (req, res) => {
+    res.render('services.html');
+  });
+
+  app.get('/about', (req, res) => {
+    res.render('about.html');
+  });
+
+  app.get('/contact', (req, res) => {
+    res.render('contact.html');
+  });
 };
