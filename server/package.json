@@ -1,0 +1,33 @@
+{
+  "name": "charity-angel",
+  "version": "1.0.0",
+  "description": "A distributed, secure, and transparent platform for donating to your favourite charities",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "lint": "eslint **/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://dev.modex.tech/OdinTech3/charity-angel.git"
+  },
+  "keywords": [
+    "modex",
+    "blockchain",
+    "charity"
+  ],
+  "author": "Wild Rabbits",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.1",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.0.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "nodemon": "^1.17.5"
+  }
+}
