@@ -1,6 +1,4 @@
-{% extends "parent.html" %}
-
-{% block main %}
+{% extends "parent.html" %} {% block main %}
 <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);" data-stellar-background-ratio="0.5">
 	<div class="overlay"></div>
 	<div class="container">
@@ -9,45 +7,45 @@
 				<div class="display-t">
 					<div class="display-tc animate-box" data-animate-effect="fadeInUp">
 						<h3 class="white">NGO sign up</h3>
-				<form action="#">
 
-					<div class="row form-group">
-						<div class="col-md-12">
-							<label for="organization" class="white">Organization</label>
-							<input type="text"  id="organization" class="form-control" placeholder="Your NGO name">
-						</div>
-					</div>
+						<form method="POST" action="/auth/signup" @submit.prevent="startAudit">
+							<div class="row form-group">
+								<div class="col-md-12">
+									<label for="organization" class="white">Organization</label>
+									<input type="text" id="organization" name="organization" class="form-control" placeholder="Your NGO name">
+								</div>
+							</div>
 
-					<div class="row form-group">
-						<div class="col-md-12">
-							<label for="email" class="white">Email</label>
-							<input type="email"  id="email" class="form-control" placeholder="Your email address">
-						</div>
-					</div>
+							<div class="row form-group">
+								<div class="col-md-12">
+									<label for="email" class="white">Email</label>
+									<input type="email" id="email" name="email" class="form-control" placeholder="Your email address">
+								</div>
+							</div>
 
-					<div class="row form-group">
-						<div class="col-md-12">
-							<label for="pass1" class="white">Password</label>
-							<input type="password" id="pass1" class="form-control" placeholder="Your password">
-						</div>
-					</div>
+							<div class="row form-group">
+								<div class="col-md-12">
+									<label for="pass1" class="white">Password</label>
+									<input type="password" id="pass1" name="password" class="form-control" placeholder="Your password">
+								</div>
+							</div>
 
-					<div class="row form-group">
-						<div class="col-md-12">
-							<label for="pass2" class="white">Confirm Password</label>
-							<input type="password" id="pass2" class="form-control" placeholder="Your password">
-						</div>
-					</div>
+							<div class="row form-group">
+								<div class="col-md-12">
+									<label for="pass2" class="white">Confirm Password</label>
+									<input type="password" id="pass2" name="confirm-p" class="form-control" placeholder="Your password">
+								</div>
+							</div>
 
-					<div class="form-group">
-						<input type="submit" value="Sign up" class="btn btn-lg btn-primary">
-					</div>
+							<div class="form-group">
+								<input type="submit" value="Sign up" class="btn btn-lg btn-primary">
+							</div>
 
-				</form>	
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </header>
-{% endblock  %}
+{% endblock %}

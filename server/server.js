@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const flash = require('express-flash');
 const expressValidator = require('express-validator');
 const bodyParser = require('body-parser');
 const MongoStore = require('connect-mongo')(session);
@@ -14,8 +15,8 @@ const jinja = require('nunjucks');
 /**
  * Controllers
  */
-const viewController = require('./controllers/view.js')
-
+const viewController = require('./controllers/views')
+const userController = require('./controllers/users.js')
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -33,8 +34,14 @@ const app = express();
  */
 jinja.configure(VIEW_DIR, {
   autoescape: true,
+  watch: true,
   express: app
 });
+
+/**
+ * Passport configuration.
+ */
+const passportConfig = require('./config/passport');
 
 /**
  * Express configuration.
@@ -42,6 +49,7 @@ jinja.configure(VIEW_DIR, {
 app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(flash());
 app.use(expressValidator());
 app.use(express.static(path.join(BASE_DIR, 'public', 'static')));
 
@@ -64,6 +72,7 @@ app.use(logger('dev'));
  * Initialize views routes
  */
 viewController(app, passport);
+userController(app, passport);
 
 /**
  * Error Handler.
