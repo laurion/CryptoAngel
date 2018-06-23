@@ -39,4 +39,9 @@ module.exports = (app) => {
     const authenticated = (req.user) ? true : false;
     res.render('detailpage.html', { user_authenticated: authenticated });
   });
+
+  app.get('/editngo', (req, res) => {
+    const authenticated = (req.user) ? true : false;
+    res.render('editngo.html', { user_authenticated: authenticated });
+  });
 };

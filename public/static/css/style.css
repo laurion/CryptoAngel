@@ -1717,7 +1717,6 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .ngo-description {
-  border-top: 2px solid #F73859;
   margin-top: 24px;
   padding: 4.4em;
 }
@@ -1762,6 +1761,14 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .tab-pane {
   padding-top: 20px;
+}
+
+.form-control {
+  color: #ffffff;
+}
+
+.form-group {
+  margin-right: 15px;
 }
 
 
