@@ -1776,6 +1776,25 @@ h1, h2, h3, h4, h5, h6, figure {
   margin: 0 auto;
 }
 
+.corpName {
+  width: 35%;
+  display: inline-block;
+}
+
+.amount {
+  width: 15%;
+  display: inline-block;
+}
+
+.disclaimer {
+  font-size: 12px!important;
+}
+
+.nav-tabs > li > a,
+.alert {
+  border-radius: 0;
+}
+
 
 @media (max-width: 1190px) {
   .event {

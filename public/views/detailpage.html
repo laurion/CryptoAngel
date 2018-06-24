@@ -28,9 +28,10 @@
 					<button type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal">Donate Tokens</button>
 					<a target="_blank" rel="nofollow" class="btn btn-default" id="bitcoin" href="https://coingate.com/pay/cryptoangel">
 						<!-- <img alt="CoinGate Payment Button" src="https://static.coingate.com/images/buttons/3.png" /> -->
-						Donate Bitcoin
+						Donate Bitcoin*
 					</a>
 				</p>
+				<p class="disclaimer">*Or Altcoin payments</p>
 				<span>Galati, Romania</span>
 			</div>
 		</div>
@@ -48,19 +49,14 @@
 					<a data-toggle="tab" href="#menu1">Organization details</a>
 				</li>
 				<li>
-					<a data-toggle="tab" href="#menu2">Pending donations</a>
-				</li>
-				<li>
-					<a data-toggle="tab" href="#menu3">Finished donations</a>
+					<a data-toggle="tab" href="#menu2">Donations</a>
 				</li>
 			</ul>
 
 			<div class="tab-content">
 				<div id="home" class="tab-pane fade in active">
-					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum tempora quidem ratione aperiam rem magnam quis sequi!
-						Repellendus magni labore vero consequuntur sint maxime sit fuga sunt accusantium perspiciatis architecto voluptates
-						ea, harum voluptate numquam, assumenda voluptatibus natus iure. Maxime accusamus voluptates sed porro eum voluptatibus
-						nisi autem rerum quaerat.
+					<p>Proiectul susținut de Asociatia „Family Hope Autism” Galați este unul nou în Galați și are drept scop strângerea de fonduri necesare achiziționării unui set de echipamente interactive (oglindă cu bule, cutie tactilă, nisip kinetic, kit-ul de peșteră) specifice dotării unei Săli de Stimulare și Integrare senzorială, necesare în terapia celor 47 de copii beneficiari de servicii gratuite (terapie ABA, logopedie, terapie educaționala, terapie senzorială, kinetoterapie, masaj, consiliere psihologica familie și copil) la Centrul de Zi pentru Copii cu Autism din Municipiul Galați. Copiii cu autism fac parte din sectorul vulnerabil al comunității, unde există nevoia acută de conștientizare, datorită creșterii îngrijorătoare a numărului de copii diagnosticați cu autism, nevoia de acceptare și integrare în societate a acestora.
+
 
 					</p>
 				</div>
@@ -71,15 +67,21 @@
 						assumenda quos!</p>
 				</div>
 				<div id="menu2" class="tab-pane fade">
-					<p>About pending donations consectetur adipisicing elit. Nihil enim dignissimos similique. Deleniti ipsa nam pariatur animi
-						laboriosam, adipisci id quibusdam nesciunt sunt a maiores earum quas incidunt ab praesentium veniam ut aliquam exercitationem
-						assumenda recusandae suscipit ad eos! Voluptas harum eligendi et ipsum tempora molestias earum ipsa assumenda quos!</p>
-				</div>
-				<div id="menu3" class="tab-pane fade">
-					<p>About finished donations ipsum dolor sit amet consectetur adipisicing elit. Nihil enim dignissimos similique. Deleniti
-						ipsa nam pariatur animi laboriosam, adipisci id quibusdam nesciunt sunt a maiores earum quas incidunt ab praesentium
-						veniam ut aliquam exercitationem assumenda recusandae suscipit ad eos! Voluptas harum eligendi et ipsum tempora molestias
-						earum ipsa assumenda quos!</p>
+						<div class="alert alert-success" role="alert">
+							<p class="corpName">A big blockchain corporation</p>
+							<p class="amount">3 Coins</p>
+								<a href="#" class="alert-link pull-right">Finished donation</a>
+							  </div>
+							  <div class="alert alert-warning" role="alert">
+									<p class="corpName">A big blockchain corporation</p>
+									<p class="amount">5 Coins</p>
+									<a href="#" class="alert-link pull-right">Pending donation</a>
+								  </div>
+							  <div class="alert alert-info" role="alert">
+									<p class="corpName">A big blockchain corporation</p>
+									<p class="amount">21 Coins</p>
+								<a href="#" class="alert-link pull-right">Refund</a>
+							  </div>
 				</div>
 			</div>
 		</div>
@@ -143,31 +145,38 @@ style="display: none;"
 
 					<div class="row form-group">
 						<div class="col-md-12">
-							<label for="compName" class="white">Full Name</label>
-							<input type="text" id="compName" name="companyName" class="form-control" placeholder="Full name">
+							<label for="compName" >Full Name</label>
+							<input type="text" id="compName" name="companyName" class="form-control" placeholder="Company full name">
 						</div>
 					</div>
 
 					<div class="row form-group">
 						<div class="col-md-12">
-							<label for="compEmail" class="white">Email address</label>
+							<label for="compEmail" >Email address</label>
 							<input type="email" id="compEmail" name="companyEmail" class="form-control" placeholder="Email address">
 						</div>
 					</div>
 
 					<div class="row form-group">
 						<div class="col-md-12">
-							<label for="compAddress" class="white">Wallet address</label>
-							<input type="text" id="compAddress" name="walletAddress" class="form-control" placeholder="Your address">
+							<label for="compAddress" >Wallet address</label>
+							<input type="text" id="compAddress" name="walletAddress" class="form-control" placeholder="Your wallet address">
 						</div>
 					</div>
 
 					<div class="row form-group">
 						<div class="col-md-12">
-							<label for="compCountry" class="white">Country</label>
+							<label for="compCountry" >Country</label>
 							<input type="text" id="compCountry" name="companyCountry" class="form-control" placeholder="Country">
 						</div>
 					</div>
+
+					<div class="row form-group">
+							<div class="col-md-12">
+								<label for="compAdress" >Contributor address</label>
+								<input type="text" id="compAdress" name="compAdress" class="form-control" placeholder="Contributor address">
+							</div>
+						</div>
 
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
