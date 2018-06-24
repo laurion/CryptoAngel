@@ -19,7 +19,7 @@ const jinja = require('nunjucks');
 const viewCtrl = require('./controllers/views.js');
 const authCtrl = require('./controllers/auth.js');
 const userCtrl = require('./controllers/user-detail.js');
-
+const donationCtrl = require('./controllers/donation.js');
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
@@ -86,6 +86,7 @@ app.use(logger('dev'));
  */
 viewCtrl(app);
 userCtrl(app);
+donationCtrl(app);
 authCtrl(app, passport);
 
 /**

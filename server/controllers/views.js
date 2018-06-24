@@ -41,6 +41,8 @@ module.exports = (app) => {
   });
 
   app.get('/FHA', (req, res) => {
+    const queryParams = (req.query) ? req.query : {};
+    console.log(queryParams);
     const authenticated = (req.user) ? true : false;
     res.render('detailpage.html', { user_authenticated: authenticated });
   });
