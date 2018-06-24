@@ -14,11 +14,14 @@
 	}
 </style>
 
-<div id="fh5co-started" style="background: rgba(42, 51, 86, 0.9);
-background-image: url(https://i.imgur.com/SLT1RSk.jpg);
-background-repeat: no-repeat;
-background-position: center;">
-	<div class="container ">
+<script>
+	function closeModal() {
+		document.querySelector('.modal').style.display = 'none';
+	}
+</script>
+
+<div id="fh5co-started">
+	<div class="container">
 		<div class="row animate-box">
 			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading" style="background: url(" https://scontent-sof1-1.xx.fbcdn.net/v/t31.0-8/18700850_1973473942939230_442467036601347300_o.jpg?_nc_cat=0&oh=de89caa33517e0c01143258ba718d578&oe=5BE9557F
 			 ")">
@@ -40,7 +43,6 @@ background-position: center;">
 		</div>
 	</div>
 </div>
-
 
 <div class="detail-page">
 	<div class="row">
@@ -85,8 +87,11 @@ background-position: center;">
 									<p class="corpName">A big blockchain corporation</p>
 									<p class="amount">21 Token</p>
 								<a href="#" class="alert-link pull-right">Refund</a>
-							  </div>
+								</div>
+
+								<a href="https://etherscan.io/address/0xF5046086BA3eF1C294fA93624378a6126b6E80BD" class="btn btn-primary" style="background: transparent; color: black">Track Donations</a>
 				</div>
+
 			</div>
 		</div>
 		<div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 ngo-timeline ">
@@ -120,10 +125,10 @@ background-position: center;">
 
 	</div>
 </div>
-
+{{ messages.info }}
 <!-- Modal -->
-<div class="modal fade {% if messages.errors %} in {% endif %}" id="myModal" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
-{% if messages.errors %}
+<div class="modal fade {% if messages.errors or messages.warning == 'now' %} in {% endif %}" id="myModal" role="dialog" data-backdrop="static" data-keyboard="true" aria-labelledby="myModalLabel"
+{% if messages.errors or messages.warning == 'now' %}
 style="display: block; padding-left: 0px;"
 {% else %}
 style="display: none;"
@@ -138,10 +143,17 @@ style="display: none;"
 				<h4 class="modal-title" id="myModalLabel">Donation form</h4>
 			</div>
 			<div class="modal-body">
-				<h5>{{ messages.warning }}</h5>
-
 				{% for error in messages.errors %}
 				<h5 style="color:red"> {{ error.msg }}</h5>{% endfor %}
+				{% if messages.warning == 'now' %}
+				<div style="display: flex">
+					<h5><p>Family Hope Autism</p>	Official ETH (&tokens) wallet: <b>0xF5046086BA3eF1C294fA93624378a6126b6E80BD</b></h5>
+					<img src="images/qrcode.png" alt="">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" onclick="closeModal(this)" data-dismiss="modal">Close</button>
+				</div>
+				{% else %}
 				<form method="POST" action="/donate" name="donateForm">
 
 					<div class="row form-group">
@@ -151,51 +163,46 @@ style="display: none;"
 						</div>
 						<div class="col-md-6">
 							<label for="donationCurrency">Currency</label>
-							<input type="text" id="donationCurrency" name="currency" class="form-control" placeholder="MDX">
+							<input type="text" id="donationCurrency" name="currency" class="form-control" placeholder="MODEX">
 						</div>
 					</div>
 
 					<div class="row form-group">
 						<div class="col-md-12">
-							<label for="compName" >Full Name</label>
+							<label for="compName">Full Name</label>
 							<input type="text" id="compName" name="companyName" class="form-control" placeholder="Company full name">
 						</div>
 					</div>
 
 					<div class="row form-group">
 						<div class="col-md-12">
-							<label for="compEmail" >Email address</label>
+							<label for="compEmail">Email address</label>
 							<input type="email" id="compEmail" name="companyEmail" class="form-control" placeholder="Email address">
 						</div>
 					</div>
 
 					<div class="row form-group">
 						<div class="col-md-12">
-							<label for="compAddress" >Wallet address</label>
+							<label for="compAddress">Contributor address</label>
 							<input type="text" id="compAddress" name="walletAddress" class="form-control" placeholder="Your wallet address">
 						</div>
 					</div>
 
 					<div class="row form-group">
 						<div class="col-md-12">
-							<label for="compCountry" >Country</label>
+							<label for="compCountry">Country</label>
 							<input type="text" id="compCountry" name="companyCountry" class="form-control" placeholder="Country">
 						</div>
 					</div>
 
-					<div class="row form-group">
-							<div class="col-md-12">
-								<label for="compAdress" >Contributor address</label>
-								<input type="text" id="compAdress" name="compAdress" class="form-control" placeholder="Contributor address">
-							</div>
-						</div>
-
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="submit" id="sendButton" class="btn btn-primary">Complete donation</button>
+						<button type="submit" id="sendButton" name="now" value="now" class="btn btn-primary">Complete donation</button>
+						<button type="submit" id="sendButton" name="later" value="later" class="btn btn-primary">Pledge for later</button>
 					</div>
 
 				</form>
+				{% endif %}
 			</div>
 		</div>
 	</div>
