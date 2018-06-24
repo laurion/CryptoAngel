@@ -23,7 +23,7 @@ const donationCtrl = require('./controllers/donation.js');
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
-dotenv.load({ path: '../.env' });
+dotenv.load({ path: '.env' });
 
 const BASE_DIR = path.dirname(__dirname);
 const VIEW_DIR = path.join(BASE_DIR, process.env.VIEW_DIR);
